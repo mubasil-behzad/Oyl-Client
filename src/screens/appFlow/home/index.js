@@ -66,7 +66,7 @@ const Home = () => {
       Toast.show('Select date first', Toast.SHORT, Toast.TOP);
     } else if (formattedHours === null || formattedHours === '0' || formattedHours === '00') {
       Toast.show('Enter hours first', Toast.SHORT, Toast.TOP);
-    } else if (formattedMinutes === null || formattedMinutes === '0' || formattedMinutes === '00') {
+    } else if (formattedMinutes === null || formattedMinutes === '0') {
       Toast.show('Enter minutes first', Toast.SHORT, Toast.TOP);
     } else if (SubmitLocation.trim() === '') {
       Toast.show('Location is empty', Toast.SHORT, Toast.TOP);

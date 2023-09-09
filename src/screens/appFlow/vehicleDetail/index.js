@@ -46,17 +46,11 @@ const VehicleDetail = () => {
           .get();
         if (documentSnapshot.exists) {
           const data = documentSnapshot.data();
-          setVehicleMake(data.Vehicleinfo.vehicleMake || '');
-          setVehicleModel(data.Vehicleinfo.vehicleModel || '');
-          setVehicleYear(data.Vehicleinfo.vehicleYear || '');
-          setVehicleColor(data.Vehicleinfo.vehicleColor || '');
-          setVehicleMileage(data.Vehicleinfo.vehicleMileage || '');
-          console.log({ data });
-          console.log('Vehicle Make:', data.Vehicleinfo.vehicleMake);
-          console.log('Vehicle Model:', data.vehicleModel);
-          console.log('Vehicle Year:', data.vehicleYear);
-          console.log('Vehicle Color:', data.vehicleColor);
-          console.log('Vehicle Mileage:', data.vehicleMileage);
+          setVehicleMake(data.Vehicleinfo.VehicleMake || '');
+          setVehicleModel(data.Vehicleinfo.VehicleModel || '');
+          setVehicleYear(data.Vehicleinfo.VehicleYear || '');
+          setVehicleColor(data.Vehicleinfo.VehicleColor || '');
+          setVehicleMileage(data.Vehicleinfo.VehicleMileage || '');
           setLoading(false);
         } else {
           console.warn('Document does not exist.');

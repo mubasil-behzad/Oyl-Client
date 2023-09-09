@@ -226,7 +226,7 @@ export const appStyles = StyleSheet.create({
     justifyContent: 'center'
   },
   Signup_View5: {
-    flex: 0.28,
+    flex: 0.3,
     marginLeft: responsiveWidth(-1),
     alignSelf: 'center',
     justifyContent: 'center'

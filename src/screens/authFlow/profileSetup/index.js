@@ -32,7 +32,7 @@ const ProfileSetup = () => {
     const navigation = useNavigation();
     const [isCalendarModalVisible, setCalendarModalVisible] = useState(false);
     const [selectedDate, setSelectedDate] = useState(new Date());
-    const {  user } = useContext(AuthContext);
+    const { user, setUser } = useContext(AuthContext);
     const [manualDate, setManualDate] = useState('');
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
@@ -76,33 +76,39 @@ const ProfileSetup = () => {
         } else if (vehicleMileage.trim() === '') {
             Toast.show('Vehicle mileage is empty', Toast.SHORT, Toast.TOP);
         } else {
-            console.log(email);
-            setLoading(true);
-            const userData = {
-                Email: user.email,
-                Uid: user.uid,
-                firstName: firstName,
-                lastName: lastName,
-                birthDay: manualDate,
-                Vehicleinfo: {
-                    vehicleMake: vehicleMake,
-                    vehicleModel: vehicleModel,
-                    vehicleYear: vehicleYear,
-                    vehicleColor: vehicleColor,
-                    vehicleMileage: vehicleMileage,
-                },
-            };
-            const userDocRef = firestore().collection('Users').doc(user.uid);
-            userDocRef
-                .set(userData, { merge: true })
-                .then(() => {
-                    console.log('User data added in Firestore!');
-                    setLoading(false);
-                    navigation.reset({ index: 0, routes: [{ name: 'AuthNavigation', params: { screen: 'Signin' } }] });
-                })
-                .catch(() => {
-                    setLoading(false);
-                });
+            try {
+                console.log(user.email);
+                setLoading(true);
+                const userData = {
+                    Email: user.email,
+                    Uid: user.uid,
+                    FirstName: firstName,
+                    LastName: lastName,
+                    BirthDay: manualDate,
+                    Vehicleinfo: {
+                        VehicleMake: vehicleMake,
+                        VehicleModel: vehicleModel,
+                        VehicleYear: vehicleYear,
+                        VehicleColor: vehicleColor,
+                        VehicleMileage: vehicleMileage,
+                    },
+                };
+                const userDocRef = firestore().collection('Users').doc(user.uid);
+                userDocRef
+                    .set(userData, { merge: true })
+                    .then(() => {
+                        console.log('User data added in Firestore!');
+                        setLoading(false);
+                        navigation.navigate('AuthNavigation', { screen: 'Signin' });
+                    })
+                    .catch(() => {
+                        console.error('Error adding user data to Firestore:', error);
+                        setLoading(false);
+                    });
+            } catch (error) {
+                console.error('Error adding user data to Firestore:', error);
+                setLoading(false);
+            }
         }
     };
     const handleCalendarButtonPress = () => {

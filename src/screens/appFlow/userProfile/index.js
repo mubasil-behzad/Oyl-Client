@@ -66,14 +66,14 @@ const UserProfile = () => {
         .get();
       if (documentSnapshot.exists) {
         const data = documentSnapshot.data();
-        setFirstName(data.firstName || '');
-        setLastName(data.lastName || '');
-        setBirthDay(data.birthDay || '');
-        setVehicleMake(data.Vehicleinfo.vehicleMake || '');
-        setVehicleModel(data.Vehicleinfo.vehicleModel || '');
-        setVehicleYear(data.Vehicleinfo.vehicleYear || '');
-        setVehicleColor(data.Vehicleinfo.vehicleColor || '');
-        setVehicleMileage(data.Vehicleinfo.vehicleMileage || '');
+        setFirstName(data.FirstName || '');
+        setLastName(data.LastName || '');
+        setBirthDay(data.BirthDay || '');
+        setVehicleMake(data.Vehicleinfo.VehicleMake || '');
+        setVehicleModel(data.Vehicleinfo.VehicleModel || '');
+        setVehicleYear(data.Vehicleinfo.VehicleYear || '');
+        setVehicleColor(data.Vehicleinfo.VehicleColor || '');
+        setVehicleMileage(data.Vehicleinfo.VehicleMileage || '');
         setLoading(false);
       } else {
         setFirstName('');
