@@ -87,7 +87,7 @@ export const appStyles = StyleSheet.create({
   Signin_Text1: {
     color: colors.appColor1,
     fontFamily: fontFamily.Roboto_Medium,
-    fontSize: fontSize.Size_1
+    fontSize: fontSize.Size_11
   },
   Signin_Text2: {
     marginTop: responsiveHeight(1),

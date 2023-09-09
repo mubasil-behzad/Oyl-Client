@@ -82,7 +82,6 @@ const Signin = () => {
           navigation.navigate('AppNavigation', { screen: 'Home' })
         });
       } catch (error) {
-
         Toast.show('Invalid email or password !', Toast.SHORT, Toast.TOP);
         setLoading(false);
         console.log(error);
@@ -168,8 +167,8 @@ const Signin = () => {
             </View>
             {loading && (
               <View
-                style={appStyles.VehicleDetail_Indicator}>
-                <DotIndicator size={9} color={colors.appColor6} />
+                style={{ ...appStyles.VehicleDetail_Indicator, top: scale(500) }}>
+                <DotIndicator size={9} color={colors.appColor1} />
               </View>
             )}
           </ImageBackground>

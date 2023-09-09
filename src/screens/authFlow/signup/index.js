@@ -211,8 +211,8 @@ const Signup = () => {
                         </View>
                         {loading && (
                             <View
-                                style={{...appStyles.VehicleDetail_Indicator,top:scale(300)}}>
-                                <DotIndicator size={9} color={colors.appColor6} /> 
+                                style={{...appStyles.VehicleDetail_Indicator,top:scale(250)}}>
+                                <DotIndicator size={9} color={colors.appColor1} /> 
                             </View>
                         )}
                     </ImageBackground>
