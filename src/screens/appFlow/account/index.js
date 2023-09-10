@@ -136,11 +136,11 @@ const EditProfile = () => {
                 lastName: lastName,
                 birthDay: manualDate,
                 Vehicleinfo: {
-                    vehicleMake: vehicleMake,
-                    vehicleModel: vehicleModel,
-                    vehicleYear: vehicleYear,
-                    vehicleColor: vehicleColor,
-                    vehicleMileage: vehicleMileage,
+                    VehicleMake: vehicleMake,
+                    VehicleModel: vehicleModel,
+                    VehicleYear: vehicleYear,
+                    VehicleColor: vehicleColor,
+                    VehicleMileage: vehicleMileage,
                 },
             };
             const userDocRef = firestore().collection('Users').doc(user.uid);
